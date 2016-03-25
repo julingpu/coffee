@@ -1,0 +1,30 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  
+  
+    <servlet>
+  	<servlet-name>dispatcherServlet</servlet-name>
+  	<servlet-class>mvc.dispatcher.DispatcherServlet</servlet-class>
+  </servlet>
+  
+  
+  <!-- 使用默认的servlet处理jsp js css等静态文件  避免mvc框架将其拦截  注意还要将此mapping设置在mvc框架的mapping之前 -->
+          
+	<servlet-mapping>         
+	    <servlet-name>default</servlet-name>      
+	    <url-pattern>*.js</url-pattern>      
+	</servlet-mapping>      
+	<servlet-mapping>          
+	    <servlet-name>default</servlet-name>         
+	    <url-pattern>*.css</url-pattern>        
+	</servlet-mapping>  
+    <servlet-mapping>
+	  	<servlet-name>dispatcherServlet</servlet-name>
+	  	<url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
