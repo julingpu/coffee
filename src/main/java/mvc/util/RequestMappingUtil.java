@@ -13,6 +13,8 @@ import mvc.annotation.RequestMapping;
 
 /**
  * 请求映射工具类
+ *
+ * 根据request请求中的信息找出映射的处理方法
  * create by julingpu on 2016年3月23日
  *
  */

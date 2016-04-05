@@ -29,6 +29,9 @@ public class MultipartServletRequest extends HttpServletRequestWrapper {
         return multipartFiles;
     }
 
+   /* public String getParameter(){
+        return this.r
+    }*/
     public void setMultipartFiles(List<MultipartFile> multipartFiles) {
         this.multipartFiles = multipartFiles;
     }

@@ -1,9 +1,7 @@
 package mvc.fileUpload;
 
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.FileUploadException;
+import com.sun.deploy.util.ArrayUtil;
+import org.apache.commons.fileupload.*;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
@@ -28,53 +26,51 @@ public class UploadFileUtil {
     //定义内存中存放文件大小的临界值  超出将文件存放在服务器临时文件 单位是字节
     private static int memory_threshold = 10*1024*1024;
 
+    private static FileItemFactory fileItemFactory;
+    //定义处理request中上传文件的组件
+    private static  ServletFileUpload upload;
+    static {
+
+        //设置文件存放在内存的临界值
+        fileItemFactory = new DiskFileItemFactory(memory_threshold,null) ;
+        // Create a new file upload handler
+        upload = new ServletFileUpload(fileItemFactory);
+        // 设置所有文件大小最大值
+        upload.setSizeMax(total_file_max_size);
+        // 设置单个文件大小最大值
+        upload.setFileSizeMax(single_file_max_size);
+        //设置文件编码方式
+        upload.setHeaderEncoding(headerEncoding);
+    }
+
     /**
      * 处理上传文件（使用Commons.fileupload包）
      * @param request
-     * @return   如果有文件上传返回InputStream列表   没有返回null
+     * @return   如果有文件上传返回mulitpartServletRequest对象   没有就返回原来的servletRequest对象
      */
-    public static List<InputStream>  handleUploadFile(HttpServletRequest request){
+    public static HttpServletRequest  handleUploadFile(HttpServletRequest request){
         //检查此次请求中是否包含文件上传
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         //如果包含文件
         if(isMultipart) {
-            List<InputStream> inputStreamList = new ArrayList<InputStream>();
-            //设置文件存放在内存的临界值
-            FileItemFactory fileItemFactory = new DiskFileItemFactory(memory_threshold,null) ;
-            // Create a new file upload handler
-            ServletFileUpload upload = new ServletFileUpload(fileItemFactory);
-            // 设置所有文件大小最大值
-            upload.setSizeMax(total_file_max_size);
-            // 设置单个文件大小最大值
-            upload.setFileSizeMax(single_file_max_size);
-            //设置文件编码方式
-            upload.setHeaderEncoding(headerEncoding);
 
+            List<MultipartFile> multipartFiles  = new ArrayList<MultipartFile>();
+            List<FileItem> fileItems ;
+            MultipartServletRequest mulitpartServletRequest = new MultipartServletRequest(request);
             try {
-                FileItemIterator iter = upload.getItemIterator(request);
-                while (iter.hasNext()) {
-                    FileItemStream item = iter.next();
-                    String name = item.getFieldName();
-                    InputStream stream = item.openStream();
-                    if (item.isFormField()) {
-                        System.out.println("Form field " + name + " with value "
-                                + Streams.asString(stream) + " detected.");
-                    } else {
-                        System.out.println("File field " + name + " with file name "
-                                + item.getName() + " detected.");
-                        // Process the input stream
-                        inputStreamList.add(stream);
-                    }
+                 fileItems = upload.parseRequest(request);
+                for (int i = 0 ; i <fileItems.size();i++){
+                    MultipartFile multipartFile = new MultipartFile(fileItems.get(i));
+                    multipartFiles.add(multipartFile);
                 }
+                mulitpartServletRequest.setMultipartFiles(multipartFiles);
             } catch (FileUploadException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                return inputStreamList;
+            }  finally {
+                return mulitpartServletRequest;
             }
         }
-        return null;
+        return request;
 
     }
 

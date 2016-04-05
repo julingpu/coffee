@@ -1,10 +1,15 @@
 package mvc.annotation;
 
+/**
+ * 请求信息实体
+ *
+ * 将request中的请求类型和请求地址封装成一个实体  RequestMappingUtil可以根据此对象获取对应的处理方法
+ */
 public class RequestInfo {
-
+	//请求类型（get post）
 	private String type;
+	//请求地址
 	private String url;
-
 	public RequestInfo() {
 		super();
 	}

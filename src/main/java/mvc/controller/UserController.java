@@ -6,18 +6,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.annotation.RequestMapping;
+import mvc.fileUpload.MultipartFile;
 
 public class UserController {
 
+
 	@RequestMapping(type = "post", url = "/login")
-	public String login(HttpServletRequest req,HttpServletResponse resp){
-		System.out.println(req.getParameter("username"));
-		try {
+	public String login(String user, String password, int prize, MultipartFile[] files){
+
+		System.out.println(user);
+		System.out.println(password);
+		System.out.println(password);
+		/*try {
 			resp.sendRedirect("success.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		return "login";
 	}
+
 }
