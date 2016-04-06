@@ -26,8 +26,8 @@ public class ClassUtil {
 	 * @param className
 	 * @return
 	 */
-	public static Class<?> loadClass(String className){
-		Class<?> c;
+	public static Class loadClass(String className){
+		Class c;
 		try {
 			c = Thread.currentThread().getContextClassLoader().loadClass(className);
 		} catch (ClassNotFoundException e) {
@@ -43,8 +43,8 @@ public class ClassUtil {
 	 * @param packageName  指定的包名 如mvc.controller
 	 * @return
 	 */
-	public static Set<Class<?>> getClassSetByPackageName(String packageName){
-		Set<Class<?>> classSet = new HashSet<Class<?>>();
+	public static Set<Class> getClassSetByPackageName(String packageName){
+		Set<Class> classSet = new HashSet<Class>();
 		//获取包名下的文件
 		File file  = new File(StringUtil.formatBlank(Thread.currentThread().getContextClassLoader().getResource(packageName.replace(".","\\")).getFile()));
 		//获取文件名下的所有class对象
@@ -59,7 +59,7 @@ public class ClassUtil {
 	 * @param packageName   class所在的包名
 	 * @return
 	 */
-	public static Set<Class<?>> getClassByFilePath(Set<Class<?>> classSet,String filePath,String packageName){
+	public static Set<Class> getClassByFilePath(Set<Class> classSet,String filePath,String packageName){
 		File[] files = new File(filePath).listFiles();
 		//遍历文件夹中的文件
 		for (File file2 : files) {

@@ -32,7 +32,7 @@ public class RequestInfo {
 	}
 	@Override
 	public String toString() {
-		return "RequestInfo [type=" + type + ", url=" + url + "]";
+		return "[type=" + type + ", url=" + url + "]";
 	}
 	@Override
 	public int hashCode() {

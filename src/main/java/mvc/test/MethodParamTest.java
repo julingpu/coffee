@@ -1,6 +1,6 @@
 package mvc.test;
 
-import mvc.util.MethodParameterUtils;
+import mvc.resolver.MethodParameterResolver;
 
 import java.lang.reflect.Method;
 
@@ -16,7 +16,7 @@ public class MethodParamTest {
         String s1 = "1";
         String s2 = "2";
          Method m = c.getMethod("a",  new Class[]{String.class,String.class});
-        String[] paramNames = MethodParameterUtils.getMethodParameterNamesByAsm4(TestClass.class,m);
+        String[] paramNames = MethodParameterResolver.getMethodParameterNamesByAsm4(TestClass.class,m);
         for(int i = 0 ; i < paramNames.length ; i++){
             System.out.println(paramNames[i]);
         }

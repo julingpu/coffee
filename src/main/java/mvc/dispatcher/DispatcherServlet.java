@@ -1,7 +1,6 @@
 package mvc.dispatcher;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -14,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import mvc.fileUpload.MultipartFile;
 import mvc.fileUpload.MultipartServletRequest;
-import mvc.fileUpload.UploadFileUtil;
-import mvc.util.MethodParameterUtils;
+import mvc.resolver.MultipartFileResolver;
+import mvc.resolver.MethodParameterResolver;
 import mvc.util.WebUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mvc.annotation.RequestInfo;
 import mvc.util.LoadUtil;
-import mvc.util.RequestMappingUtil;
+import mvc.resolver.RequestMappingResolver;
 
 /**
  * mvc框架的核心转发器
@@ -49,54 +48,43 @@ public class DispatcherServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("POST!!!!!!!!!!!!!!!!!");
-		super.service(req, resp);
+		this.service(req, resp);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.service(req, resp);
+		this.service(req, resp);
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
-		//处理文件上传
-		HttpServletRequest progressRequest = UploadFileUtil.handleUploadFile(req);
+		//处理文件上传  如果没有文件上传 返回的是旧的request 如果有文件上传  返回的是新封装的request
+		HttpServletRequest progressRequest = MultipartFileResolver.handleUploadFile(req);
 		boolean hasHandleFileUpload = false;
 		if(progressRequest == req){
 			logger.info("没有处理过上传文件");
 		}else{
 			hasHandleFileUpload = true;
 		}
-
 		//根据请求类型(get post)和请求的url封装成RequestInfo 然后通过映射处理器找到对应的处理方法
 		RequestInfo requestInfo = new RequestInfo();
 		requestInfo.setType(req.getMethod().toLowerCase());
 		requestInfo.setUrl(req.getServletPath());
-		Method method = RequestMappingUtil.getRequestMapping(requestInfo);
-		Class[] ParameterTypes = method.getParameterTypes();
-	logger.info("request:"+req);
+		Method method = RequestMappingResolver.getRequestMapping(requestInfo);
+
 		if(method!=null) {
-			logger.info("使用"+method.getName()+"处理"+requestInfo.toString());
+			logger.info("使用 "+method.getDeclaringClass().getName()+"."+method.getName()+" 处理请求 "+requestInfo.toString());
 			try {
-
-				Object[] o = MethodParameterUtils.getMethodParamValue(method,progressRequest,resp);
-
-				Object result = method.invoke(method.getDeclaringClass().newInstance(),o );
-				System.out.println(result);
+				Object[] params = MethodParameterResolver.getMethodParamValue(method,progressRequest,resp);
+				Object result = method.invoke(method.getDeclaringClass().newInstance(),params );
 			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally {
 				logger.info(method.getName()+"处理"+requestInfo.toString()+"结束");
@@ -105,11 +93,7 @@ public class DispatcherServlet extends HttpServlet{
 		else{
 			logger.info("未能找到处理"+requestInfo.toString()+"的方法");
 		}
-
-
 		//如果处理过上传文件  清空文件缓存
-
-
 		if(hasHandleFileUpload){
 			cleanupMultipart(req);
 		}
@@ -118,7 +102,6 @@ public class DispatcherServlet extends HttpServlet{
 	protected  void cleanupMultipart(HttpServletRequest request) {
 		MultipartServletRequest multipartServletRequest = WebUtil.getNativeRequest(request,MultipartServletRequest.class);
 		if(multipartServletRequest!=null){
-
 			List<MultipartFile> multipartFiles = multipartServletRequest.getMultipartFiles();
 			logger.info("准备清空"+multipartFiles.size()+"个临时文件");
 			for (MultipartFile multipartFile : multipartFiles) {
@@ -126,11 +109,9 @@ public class DispatcherServlet extends HttpServlet{
 			}
 			logger.info("临时文件清空完成");
 		}
-
 	}
 
 	public void test(){
-		// TODO Auto-generated method stub
 		/*String uri = req.getRequestURI(); ///mvc/test.action
 		String url = req.getRequestURL().toString();//http://localhost/mvc/test.action
 		String contextPath = req.getContextPath();  ///mvc

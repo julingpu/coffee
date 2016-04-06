@@ -15,8 +15,7 @@ public class XmlEntity {
 
 	 private Map<String,Object> paramMap = new HashMap<String,Object>();
 	 
-	 private List<XmlRequestMappingInfo> XmlRequestMappingInfos = new ArrayList<XmlRequestMappingInfo>();
-	 
+
 	 public Object getParamValue(String paramName){
 		 return paramMap.get(paramName);
 	 }
@@ -25,13 +24,7 @@ public class XmlEntity {
 		 paramMap.put(key, value);
 	 }
 	
-	 public void setXmlRequestMappingInfo(XmlRequestMappingInfo requestMappingInfo){
-		 XmlRequestMappingInfos.add(requestMappingInfo);
-	 }
-	
-	 public List<XmlRequestMappingInfo> getXmlRequestMappingInfo(){
-		 return XmlRequestMappingInfos;
-	 }
+
 
 	
 }

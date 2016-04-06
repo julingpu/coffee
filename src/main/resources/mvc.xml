@@ -2,7 +2,7 @@
 
 <mvc>
 	<!-- 设置controller层的包名 -->
-	<param name="package" value="mvc.controller"/>
-	
-	
+	<param name="controllerPackage" value="mvc.controller"/>
+
+	<param name="entityPackage" value="mvc.entity"/>
 </mvc>

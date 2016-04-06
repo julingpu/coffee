@@ -3,11 +3,10 @@
 
 
 
-<form action="login" method="post" >
-	<input type="text" name="user"/>
+<form action="login" method="post"  enctype="multipart/form-data">
+	<input type="text" name="username"/>
 	<input type="password" name="password"/>
-	<input type="text" name="prize"/>
-
+	<input type="file" name="file"/>
 	<input type="submit"  />
 </form>
 
