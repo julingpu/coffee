@@ -1,5 +1,7 @@
 package mvc.entity;
 
+import java.io.Serializable;
+
 /**
  * created by julingpu on 2016/4/5
  **/

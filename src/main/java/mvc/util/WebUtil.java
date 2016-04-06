@@ -2,6 +2,7 @@ package mvc.util;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletRequestWrapper;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * created by julingpu on 2016/3/31
@@ -25,5 +26,15 @@ public class WebUtil {
             }
         }
         return null;
+    }
+
+
+    /**
+     * 获取项目所在路径
+     * @param request
+     * @return
+     */
+    public static  String getContextPath(HttpServletRequest request){
+        return  request.getSession().getServletContext().getRealPath("/");
     }
 }

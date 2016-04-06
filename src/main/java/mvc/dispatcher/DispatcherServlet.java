@@ -16,6 +16,8 @@ import mvc.fileUpload.MultipartServletRequest;
 import mvc.resolver.MultipartFileResolver;
 import mvc.resolver.MethodParameterResolver;
 import mvc.util.WebUtil;
+import mvc.view.ModelAndView;
+import mvc.view.ViewResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,6 +61,7 @@ public class DispatcherServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		//处理文件上传  如果没有文件上传 返回的是旧的request 如果有文件上传  返回的是新封装的request
 		HttpServletRequest progressRequest = MultipartFileResolver.handleUploadFile(req);
 		boolean hasHandleFileUpload = false;
@@ -77,7 +80,11 @@ public class DispatcherServlet extends HttpServlet{
 			logger.info("使用 "+method.getDeclaringClass().getName()+"."+method.getName()+" 处理请求 "+requestInfo.toString());
 			try {
 				Object[] params = MethodParameterResolver.getMethodParamValue(method,progressRequest,resp);
-				Object result = method.invoke(method.getDeclaringClass().newInstance(),params );
+
+				ModelAndView result = (ModelAndView) method.invoke(method.getDeclaringClass().newInstance(),params );
+				if(result!=null){
+					ViewResolver.handlerView(result,req,resp);
+				}
 			} catch (IllegalArgumentException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {

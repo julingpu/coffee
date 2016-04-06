@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -35,7 +36,8 @@ public class MethodParameterResolver {
 
 
     //方法需要注入的参数值
-    static List<Object> paramValues = new ArrayList<Object>();
+    static ThreadLocal<ArrayList<Object>> threadParamValues = new ThreadLocal<ArrayList<Object>>();
+
     /**
      * 获取指定类指定方法的参数名
      *
@@ -44,6 +46,7 @@ public class MethodParameterResolver {
      * @return 按参数顺序排列的参数名列表，如果没有参数，则返回null
      */
     public static String[] getMethodParameterNamesByAsm4(Class<?> clazz, final Method method) {
+
         final Class<?>[] parameterTypes = method.getParameterTypes();
         if (parameterTypes == null || parameterTypes.length == 0) {
             return null;
@@ -53,7 +56,6 @@ public class MethodParameterResolver {
             types[i] = Type.getType(parameterTypes[i]);
         }
         final String[] parameterNames = new String[parameterTypes.length];
-
         String className = clazz.getName();
         int lastDotIndex = className.lastIndexOf(".");
         className = className.substring(lastDotIndex + 1) + ".class";
@@ -75,7 +77,7 @@ public class MethodParameterResolver {
                             if (Modifier.isStatic(method.getModifiers())) {
                                 parameterNames[index] = name;
                             }
-                            else if (index > 0) {
+                            else if (index > 0&& index<=parameterTypes.length) {
                                 parameterNames[index - 1] = name;
                             }
                         }
@@ -96,6 +98,8 @@ public class MethodParameterResolver {
      * @return
      */
     public static Object[] getMethodParamValue(Method method , HttpServletRequest request,HttpServletResponse response){
+       // List<Object> paramValues = threadParamValues.get();
+        threadParamValues.set(new ArrayList<Object>());
         logger.info("开始注入"+method.getDeclaringClass().getName()+"."+method.getName()+"的入参...");
         //获取controller方法的参数类型
         Class<?>[] parameterTypes = method.getParameterTypes();
@@ -132,15 +136,16 @@ public class MethodParameterResolver {
                         handleEntityType(paramType,request);
                     }
                     else{
-                        paramValues.add(null);
+                        threadParamValues.get().add(null);
                         logger.info("参数"+paramNames[i]+"注入失败 请求中没有相关属性");
                     }
                 }
             }
         }
         logger.info(method.getDeclaringClass().getName()+"."+method.getName()+"方法入参注入完成");
-        return paramValues.toArray();
+        return threadParamValues.get().toArray();
     }
+
 
     private static void handleEntityType(Class entity,HttpServletRequest request) {
         try {
@@ -151,7 +156,7 @@ public class MethodParameterResolver {
                 if(method.getName().startsWith("set")) {
                     //获取get方法的字段
                     String field = StringUtil.getFieldFromGetMethod(method.getName());
-                    String val = request.getParameter(field);
+                    String  val = request.getParameter(field);
                     //如果request中有这个字段的值
                     if (StringUtil.checkNotNull(val)){
                         Class[] fieldTypes = method.getParameterTypes();
@@ -173,23 +178,22 @@ public class MethodParameterResolver {
                             } else if (fieldType.equals(Double.class)) {
                                 args = resolveDouble1(val);
                             }
-                            try {
                                 method.invoke(ins, args);
-                            } catch (InvocationTargetException e) {
-                                e.printStackTrace();
-                            }
                         }
                     }
 
                 }
             }
-
-            paramValues.add(ins);
+            threadParamValues.get().add(ins);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-        } finally {
+        }  catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        finally {
         }
     }
 
@@ -203,14 +207,14 @@ public class MethodParameterResolver {
     private static void handleServletType(HttpServletRequest request,HttpServletResponse response,Class paramType ) {
         if(paramType.equals(HttpServletRequest.class)) {
             if(request instanceof  MultipartServletRequest) {
-                paramValues.add(((MultipartServletRequest) request).getRequest());
+                threadParamValues.get().add(((MultipartServletRequest) request).getRequest());
             }
             else{
-                paramValues.add(request);
+                threadParamValues.get().add(request);
             }
         }
         else if(paramType.equals(HttpServletResponse.class)){
-            paramValues.add(response);
+            threadParamValues.get().add(response);
         }
     }
 
@@ -232,10 +236,10 @@ public class MethodParameterResolver {
             for (int j = 0; j < mulitipartFiles.size(); j++) {
                 multipartFileArray[j] = mulitipartFiles.get(j);
             }
-            paramValues.add(multipartFileArray);
+            threadParamValues.get().add(multipartFileArray);
         }else{
             logger.info("参数"+paramName+"请求中并未包含文件上传");
-            paramValues.add(multipartFileArray);
+            threadParamValues.get().add(multipartFileArray);
         }
     }
 
@@ -247,24 +251,24 @@ public class MethodParameterResolver {
      */
     private static void handleSimpleType(Class paramType,String val) {
         if (paramType.equals(String.class)) {
-            paramValues.add(val);
+            threadParamValues.get().add(val);
         }else if(paramType.equals(int.class)){
-            paramValues.add(resolveInt(val));
+            threadParamValues.get().add(resolveInt(val));
         }
         else if(paramType.equals(Integer.class)){
-            paramValues.add(resolveInteger(val));
+            threadParamValues.get().add(resolveInteger(val));
         }
         else if(paramType.equals(float.class)){
-            paramValues.add(resolveFloat(val));
+            threadParamValues.get().add(resolveFloat(val));
         }
         else if(paramType.equals(Float.class)){
-            paramValues.add(resolveFloat1(val));
+            threadParamValues.get().add(resolveFloat1(val));
         }
         else if(paramType.equals(double.class)){
-            paramValues.add(resolveDouble(val));
+            threadParamValues.get().add(resolveDouble(val));
         }
         else if(paramType.equals(Double.class)){
-            paramValues.add(resolveDouble1(val));
+            threadParamValues.get().add(resolveDouble1(val));
         }
 
     }
