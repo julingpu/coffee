@@ -1,7 +1,9 @@
 package mvc.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,17 +19,18 @@ public class UserController {
 //
 	@RequestMapping(type = "post", url = "/login")
 	public ModelAndView login(UserInfo userInfo,HttpServletRequest request){
-
-
-		System.out.println(request.getSession().getServletContext().getRealPath("/"));
-		System.out.println(request.getSession().getServletContext().getRealPath(request.getRequestURI()));
-		ModelAndView modelAndView = new ModelAndView(View.JSON,userInfo);
+		ModelAndView modelAndView = new ModelAndView(View.JSP);
+		modelAndView.setPath("success.jsp");
 		return modelAndView;
 	}
 	@RequestMapping(type = "get", url = "/freemarker")
-	public ModelAndView freemarkerTest(UserInfo userInfo){
-		ModelAndView modelAndView = new ModelAndView(View.FREEMARKER,"/login.ftl");
+	public ModelAndView freemarkerTest(UserInfo userInfo,HttpServletRequest request,HttpServletResponse response){
+		Map root  = new HashMap<String,Object>();
+		root.put("username","我");
+		root.put("password","admin");
+		ModelAndView modelAndView = new ModelAndView(View.FREEMARKER,"WEB-INF/freemarker/login.ftl",root);
 		return modelAndView;
 	}
+
 
 }

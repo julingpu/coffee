@@ -18,10 +18,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 视图解析器
  * created by julingpu on 2016/4/6
  **/
 public class ViewResolver {
     private static Logger logger = LoggerFactory.getLogger(ViewResolver.class);
+    //freemarker version
+    static Version freemarek_version = new Version(2, 3, 1);
+    //freemarker configuration
+    static Configuration freemarker_config = new Configuration(freemarek_version);
+    //定义freemarker文件目录  其实就是工程目录
+    static File freemarker_directory =null;
 
     public static  void handlerView(ModelAndView modelAndView, HttpServletRequest request, HttpServletResponse response){
         try {
@@ -30,10 +37,10 @@ public class ViewResolver {
                     handleJson(modelAndView.getModel(),response);
                     break;
                 case JSP:
-                    handleJsp(modelAndView.getModel().toString(),request,response);
+                    handleJsp(modelAndView.getPath(),request,response);
                     break;
                 case FREEMARKER:
-                    handleFreemarker((String)modelAndView.getModel(),request,response);
+                    handleFreemarker(modelAndView.getPath(),modelAndView.getModel(),response);
                     break;
             }
         } catch (IOException e) {
@@ -47,18 +54,9 @@ public class ViewResolver {
         }
     }
 
-    private static void handleFreemarker(String path,HttpServletRequest request,HttpServletResponse response) throws IOException, TemplateException {
-        Version version = new Version(2, 3, 1);
-        Configuration cfg = new Configuration(version);
-        cfg.setDirectoryForTemplateLoading(new File(WebUtil.getContextPath(request)+"WEB-INF/freemarker"));
-        cfg.setObjectWrapper(new DefaultObjectWrapper(version));
-        Template temp = cfg.getTemplate(path);
-        /*Map root = new HashMap();
-        root.put("name", "张三");
-        root.put("address", "中国-北京");*/
-        Writer out = new OutputStreamWriter(System.out);
-        temp.process(null, response.getWriter());
-        out.flush();
+    private static void handleFreemarker(String path,Object model,HttpServletResponse response) throws IOException, TemplateException {
+        Template temp = freemarker_config.getTemplate(path,"GBK");
+        temp.process(model, response.getWriter());
     }
 
 
@@ -68,5 +66,30 @@ public class ViewResolver {
     }
     public static void handleJsp(String path,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher(path).forward(request,response);
+    }
+
+
+    /**
+     * 初始化视图解析器的相关配置
+     * @param request
+     * @throws IOException
+     */
+    public static void init(HttpServletRequest request) throws IOException {
+        //init freemarker
+        initFreemarker(request);
+    }
+
+    /**
+     * 初始化freemarker相关组件
+     * @param request
+     * @throws IOException
+     */
+    public static void initFreemarker(HttpServletRequest request) throws  IOException{
+        if (freemarker_directory==null){
+            freemarker_directory = new File(WebUtil.getContextPath(request));
+            freemarker_config.setDirectoryForTemplateLoading(freemarker_directory);
+            freemarker_config.setObjectWrapper(new DefaultObjectWrapper(freemarek_version));
+            freemarker_config.setDefaultEncoding("UTF-8");
+        }
     }
 }

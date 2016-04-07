@@ -7,19 +7,33 @@ package mvc.view;
 public class ModelAndView {
     //定义视图类型
     private View view;
+    //定义视图路径
+    private String path;
     //定义视图包含的数据
     private Object model;
-
+    public ModelAndView() {
+    }
     public ModelAndView(View view) {
         this.view = view;
     }
 
-    public ModelAndView() {
+    public ModelAndView( View view,Object model) {
+        this.model = model;
+        this.view = view;
     }
 
-    public ModelAndView(View view, Object model) {
+    public ModelAndView(View view, String path, Object model) {
         this.view = view;
+        this.path = path;
         this.model = model;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public View getView() {

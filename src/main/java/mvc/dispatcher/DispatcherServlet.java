@@ -35,7 +35,7 @@ public class DispatcherServlet extends HttpServlet{
 	private static Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
 
 	/**
-	 * 初始化mvc框架
+	 * 初始化mvc框架  当第一次访问此servlet时执行
 	 * @param servletConfig
 	 * @throws ServletException
      */
@@ -48,20 +48,23 @@ public class DispatcherServlet extends HttpServlet{
 		logger.info("初始化"+this.getClass().getName()+"结束  耗时"+(end-begin)+"毫秒");
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.service(req, resp);
-	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.service(req, resp);
-	}
-
+	/**
+	 * 核心处理器
+	 * 每次请求都会执行
+	 * 处理文件上传  controller方法参数注入 执行 及结果处理
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+     */
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		//初始化viewResolver的相关配置
+		ViewResolver.init(req);
 		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		//处理文件上传  如果没有文件上传 返回的是旧的request 如果有文件上传  返回的是新封装的request
 		HttpServletRequest progressRequest = MultipartFileResolver.handleUploadFile(req);
 		boolean hasHandleFileUpload = false;
@@ -70,19 +73,19 @@ public class DispatcherServlet extends HttpServlet{
 		}else{
 			hasHandleFileUpload = true;
 		}
-		//根据请求类型(get post)和请求的url封装成RequestInfo 然后通过映射处理器找到对应的处理方法
-		RequestInfo requestInfo = new RequestInfo();
-		requestInfo.setType(req.getMethod().toLowerCase());
-		requestInfo.setUrl(req.getServletPath());
-		Method method = RequestMappingResolver.getRequestMapping(requestInfo);
-
+		//根据request信息通过映射处理器找到对应的处理方法
+		Method method = RequestMappingResolver.getRequestMapping(req);
+		StringBuilder requestInfo = new StringBuilder();
+		requestInfo.append("[type=").append(req.getMethod().toLowerCase()).append(", url=").append(req.getServletPath()).append("]");
 		if(method!=null) {
-			logger.info("使用 "+method.getDeclaringClass().getName()+"."+method.getName()+" 处理请求 "+requestInfo.toString());
+			logger.info("使用 "+method.getDeclaringClass().getName()+"."+method.getName()+" 处理请求 "+requestInfo);
 			try {
+				//获取controller方法入参值
 				Object[] params = MethodParameterResolver.getMethodParamValue(method,progressRequest,resp);
-
+				//通过反射执行controller方法并获取controller方法返回值
 				ModelAndView result = (ModelAndView) method.invoke(method.getDeclaringClass().newInstance(),params );
 				if(result!=null){
+					//解析返回值
 					ViewResolver.handlerView(result,req,resp);
 				}
 			} catch (IllegalArgumentException e) {
@@ -94,11 +97,11 @@ public class DispatcherServlet extends HttpServlet{
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			}finally {
-				logger.info(method.getName()+"处理"+requestInfo.toString()+"结束");
+				logger.info(method.getName()+"处理"+requestInfo+"结束");
 			}
 		}
 		else{
-			logger.info("未能找到处理"+requestInfo.toString()+"的方法");
+			logger.info("未能找到处理"+requestInfo+"的方法");
 		}
 		//如果处理过上传文件  清空文件缓存
 		if(hasHandleFileUpload){
@@ -106,6 +109,13 @@ public class DispatcherServlet extends HttpServlet{
 		}
 	}
 
+
+
+
+	/**
+	 * 清空文件缓存
+	 * @param request
+     */
 	protected  void cleanupMultipart(HttpServletRequest request) {
 		MultipartServletRequest multipartServletRequest = WebUtil.getNativeRequest(request,MultipartServletRequest.class);
 		if(multipartServletRequest!=null){
@@ -129,5 +139,16 @@ public class DispatcherServlet extends HttpServlet{
 		String getServerName =req.getServerName();//localhost
 		String getProtocol = req.getProtocol();//HTTP/1.1
 		String getMethod = req.getMethod();//POST*/
+	}
+
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		this.service(req, resp);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		this.service(req, resp);
 	}
 }

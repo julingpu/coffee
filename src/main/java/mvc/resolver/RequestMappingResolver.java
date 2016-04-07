@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import mvc.annotation.RequestInfo;
 import mvc.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * 请求映射解析器
@@ -23,7 +25,20 @@ public class RequestMappingResolver {
 	private static Logger logger = LoggerFactory.getLogger(RequestMappingResolver.class);
 	//定义请求映射的集合
 	private static Map<RequestInfo, Method> requestMappingMap = new HashMap<RequestInfo, Method>();
-	
+
+
+	/**
+	 * 根据request获取对应的method对象
+	 * @param request
+	 * @return
+     */
+	public static Method getRequestMapping(HttpServletRequest request){
+
+		RequestInfo requestInfo = new RequestInfo();
+		requestInfo.setType(request.getMethod().toLowerCase());
+		requestInfo.setUrl(request.getServletPath());
+		return requestMappingMap.get(requestInfo);
+	}
 	/**
 	 * 根据url获取对应的method对象
 	 * @return

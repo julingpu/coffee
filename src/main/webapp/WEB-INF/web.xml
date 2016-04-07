@@ -10,10 +10,15 @@
   	<servlet-name>dispatcherServlet</servlet-name>
   	<servlet-class>mvc.dispatcher.DispatcherServlet</servlet-class>
   </servlet>
-  
+
+
+
+
   
   <!-- 使用默认的servlet处理jsp js css等静态文件  避免mvc框架将其拦截  注意还要将此mapping设置在mvc框架的mapping之前 -->
-          
+
+
+
 	<servlet-mapping>         
 	    <servlet-name>default</servlet-name>      
 	    <url-pattern>*.js</url-pattern>      

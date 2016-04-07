@@ -5,7 +5,8 @@
     <title>user.ftl</title>
 </head>
 <body>
-${user.userName}
-    ${user.userPassword}
+${username}
+
+
 </body>
 </html>
