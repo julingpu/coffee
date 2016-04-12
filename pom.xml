@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.julingpu</groupId>
 	<artifactId>mvc</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mvc Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -16,13 +16,17 @@
 		  <artifactId>asm</artifactId>
 		  <version>5.1</version>
 	  </dependency>
-	  	<!--SpringMVC-->
+	 <!-- 	&lt;!&ndash;SpringMVC&ndash;&gt;
 	  <dependency>
 		  <groupId>org.springframework</groupId>
 		  <artifactId>spring-webmvc</artifactId>
 		  <version>4.1.0.RELEASE</version>
-	  </dependency>
-    
+	  </dependency>-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.1.0.RELEASE</version>
+		</dependency>
        <!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -47,7 +51,7 @@
 		<dependency>
 		    <groupId>dom4j</groupId>
 		    <artifactId>dom4j</artifactId>
-		    <version>20040902.021138</version>
+		    <version>1.6</version>
 		</dependency>
 		
 		<!-- log4j -->
@@ -104,7 +108,7 @@
   <build>
     <finalName>mvc</finalName>
 	  <plugins>
-		  <plugin>
+		<!--  <plugin>
 			  <groupId>org.codehaus.mojo</groupId>
 			  <artifactId>exec-maven-plugin</artifactId>
 			  <version>1.1.1</version>
@@ -123,7 +127,7 @@
 					  </configuration>
 				  </execution>
 			  </executions>
-		  </plugin>
+		  </plugin>-->
 
 	  </plugins>
   </build>

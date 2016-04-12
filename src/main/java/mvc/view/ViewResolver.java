@@ -10,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,7 +59,11 @@ public class ViewResolver {
 
     public static void handleJson(Object object,HttpServletResponse response) throws IOException {
         String result = new ObjectMapper().writeValueAsString(object);
-        response.getWriter().write(result);
+        logger.info("返回给客户端的json:"+result);
+        //这里如果不设置contentType 就算设置了response的characterEncoding为UTF-8也会乱码
+        //因为如果不设置response就会默认当做
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().print(result);
     }
     public static void handleJsp(String path,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher(path).forward(request,response);

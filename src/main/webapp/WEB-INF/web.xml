@@ -4,8 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  
-  
+
     <servlet>
   	<servlet-name>dispatcherServlet</servlet-name>
   	<servlet-class>mvc.dispatcher.DispatcherServlet</servlet-class>

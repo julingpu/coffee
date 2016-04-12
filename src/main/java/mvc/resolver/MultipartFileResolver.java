@@ -66,7 +66,14 @@ public class MultipartFileResolver {
                     }
                     //如果是文件信息 添加到mulitpartServletRequest的parameterMap中
                     else {
-                        MultipartFile multipartFile = new MultipartFile(fileItems.get(i));
+                        MultipartFile multipartFile = new MultipartFile(fileItems.get(i).getFieldName(),
+                                fileItems.get(i).getSize(),
+                                fileItems.get(i).getName(),
+                                fileItems.get(i).getInputStream(),
+                                fileItems.get(i).getContentType(),
+                                fileItems.get(i),
+                                fileItems.get(i).get()
+                        );
                         mulitpartServletRequest.addMultipartFile(multipartFile);
                     }
                 }
@@ -79,5 +86,7 @@ public class MultipartFileResolver {
         return request;
 
     }
+
+
 
 }
