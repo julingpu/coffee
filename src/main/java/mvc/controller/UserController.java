@@ -16,15 +16,14 @@ import mvc.annotation.RequestMapping;
 import mvc.entity.UserInfo;
 import mvc.fileUpload.MultipartFile;
 import mvc.util.TimeUtil;
-import mvc.view.ModelAndView;
-import mvc.view.View;
+import mvc.view.*;
 
 public class UserController {
 
 //
 	@RequestMapping(type = "post", url = "/login")
 	public ModelAndView login(UserInfo userInfo,HttpServletRequest request,MultipartFile[] files){
-		ModelAndView modelAndView = new ModelAndView(View.JSP);
+		JspView jspView = new JspView();
 		if(files.length>0){
 			File directory =new File(request.getSession().getServletContext().getRealPath("/")+"images");
 			if  (!directory .exists()  && !directory .isDirectory())
@@ -51,24 +50,32 @@ public class UserController {
 
 			}
 		}
-		modelAndView.setPath("success.jsp");
-		return modelAndView;
+		jspView.setJspPath("success.jsp");
+		return jspView;
 	}
 	@RequestMapping(type = "get", url = "/freemarker")
 	public ModelAndView freemarkerTest(UserInfo userInfo,HttpServletRequest request,HttpServletResponse response){
 		Map root  = new HashMap<String,Object>();
 		root.put("username","我");
 		root.put("password","admin");
-		ModelAndView modelAndView = new ModelAndView(View.FREEMARKER,"WEB-INF/freemarker/login.ftl",root);
-		return modelAndView;
+		FreeMarkerView freeMarkerView = new FreeMarkerView();
+		freeMarkerView.setFreemarkerPath("WEB-INF/freemarker/login.ftl");
+		freeMarkerView.setFreemarkerModel(root);
+		return freeMarkerView;
 	}
 	@RequestMapping(type = "get", url = "/json")
 	public ModelAndView jsonTest(){
 		Map root  = new HashMap<String,Object>();
 		root.put("username","我");
 		root.put("password","admin");
-		ModelAndView modelAndView = new ModelAndView(View.JSON,root);
-		return modelAndView;
+		JsonView jsonView = new JsonView(root);
+		return jsonView;
+	}
+
+	@RequestMapping(type = "get", url = "/html")
+	public ModelAndView htmlTest(){
+		HtmlView htmlView = new HtmlView("html.html");
+		return htmlView;
 	}
 
 }

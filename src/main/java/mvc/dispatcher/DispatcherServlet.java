@@ -86,8 +86,6 @@ public class DispatcherServlet extends HttpServlet{
 			try {
 				//获取controller方法入参值
 				Object[] params = MethodParameterResolver.getMethodParamValue(method,progressRequest,resp);
-
-
 				ModelAndView result = null;
 				//获取spring的容器
 				WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(req.getSession().getServletContext());

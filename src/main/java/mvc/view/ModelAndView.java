@@ -11,44 +11,44 @@ public class ModelAndView {
     private String path;
     //定义视图包含的数据
     private Object model;
-    public ModelAndView() {
+    protected ModelAndView() {
     }
-    public ModelAndView(View view) {
+    protected ModelAndView(View view) {
         this.view = view;
     }
 
-    public ModelAndView( View view,Object model) {
+    protected ModelAndView( View view,Object model) {
         this.model = model;
         this.view = view;
     }
 
-    public ModelAndView(View view, String path, Object model) {
+    protected ModelAndView(View view, String path, Object model) {
         this.view = view;
         this.path = path;
         this.model = model;
     }
 
-    public String getPath() {
+    protected String getPath() {
         return path;
     }
 
-    public void setPath(String path) {
+    protected void setPath(String path) {
         this.path = path;
     }
 
-    public View getView() {
+    protected View getView() {
         return view;
     }
 
-    public void setView(View view) {
+    protected void setView(View view) {
         this.view = view;
     }
 
-    public Object getModel() {
+    protected Object getModel() {
         return model;
     }
 
-    public void setModel(Object model) {
+    protected void setModel(Object model) {
         this.model = model;
     }
 }

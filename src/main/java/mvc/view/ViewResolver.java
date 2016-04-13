@@ -1,5 +1,6 @@
 package mvc.view;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import freemarker.template.*;
 import mvc.entity.UserInfo;
@@ -39,6 +40,9 @@ public class ViewResolver {
                 case FREEMARKER:
                     handleFreemarker(modelAndView.getPath(),modelAndView.getModel(),response);
                     break;
+                case HTML:
+                    handleHtml(modelAndView.getPath(),response);
+                    break;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,6 +53,10 @@ public class ViewResolver {
         }
         finally {
         }
+    }
+
+    private static void handleHtml(String path,HttpServletResponse response) throws IOException{
+        response.sendRedirect(path);
     }
 
     private static void handleFreemarker(String path,Object model,HttpServletResponse response) throws IOException, TemplateException {
