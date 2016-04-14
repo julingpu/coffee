@@ -41,21 +41,23 @@ public  class XmlParser {
 	 * 解析mvc.xml文件
 	 * @return
 	 */
-	public static XmlEntity  parserXML() {
+	public static XmlEntity  parserXML(String path) throws DocumentException {
 		SAXReader reader = new SAXReader();
 		File file = null;
-		try {
+		//如果web.xml中的contextConfigLocation不为空 那么使用用户手动设置的配置文件路径
+		if(StringUtil.checkNotNull(path)){
 			//这里需要把getResource获取到的资源的地址中的转义字符%20手动转成空格
+			if(path.split(":").length>1){
+				path = path.split(":")[1];
+			}
+			file = new File(StringUtil.formatBlank(Thread.currentThread().getContextClassLoader().getResource(path).getFile()));
+		}else {
 			file = new File(StringUtil.formatBlank(Thread.currentThread().getContextClassLoader().getResource(xmlPath).getFile()));
-			Document document = reader.read(file);
-			Element root = document.getRootElement();
-			//解析param节点
-			parseParam(root);
-
-		} catch (DocumentException e) {
-			logger.error("mvc.xml解析错误");
 		}
-
+		Document document = reader.read(file);
+		Element root = document.getRootElement();
+		//解析param节点
+		parseParam(root);
 		return xmlEntity;
 	}
 	

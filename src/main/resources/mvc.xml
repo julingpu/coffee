@@ -3,6 +3,5 @@
 <mvc>
 	<!-- 设置controller层的包名 -->
 	<param name="controllerPackage" value="mvc.controller"/>
-
-	<param name="entityPackage" value="mvc.entity"/>
+<!--	<param name="entityPackage" value="mvc.entity"/>-->
 </mvc>

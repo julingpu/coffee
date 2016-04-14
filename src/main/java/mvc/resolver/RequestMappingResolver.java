@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import mvc.exception.RequestMappingRepeatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,9 +53,15 @@ public class RequestMappingResolver {
 	 * @param requestInfo
 	 * @param method
 	 */
-	public static void addRequestMapping(RequestInfo requestInfo,Method method){
-		
-		requestMappingMap.put(requestInfo, method);
+	public static boolean addRequestMapping(RequestInfo requestInfo,Method method) {
+		if(requestMappingMap.get(requestInfo)==null) {
+			requestMappingMap.put(requestInfo, method);
+			return true;
+		}else{
+			logger.error(method.getDeclaringClass().getName()+"."+method.getName()+"上的注解无效");
+			logger.error("因为"+requestInfo.toString()+"已经映射到方法"+requestMappingMap.get(requestInfo).getDeclaringClass().getName()+"."+requestMappingMap.get(requestInfo).getName());
+			return  false;
+		}
 	}
 	
 	/**
@@ -62,9 +69,9 @@ public class RequestMappingResolver {
 	 * @param requestMapping
 	 * @param method
 	 */
-	public static void addRequestMapping(RequestMapping requestMapping,Method method){
+	public static boolean addRequestMapping(RequestMapping requestMapping,Method method){
 		RequestInfo requestInfo = new RequestInfo(requestMapping.type(),requestMapping.url());
-		addRequestMapping(requestInfo,method);
+		return addRequestMapping(requestInfo,method);
 	}
 	
 	

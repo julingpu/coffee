@@ -20,24 +20,6 @@ import org.slf4j.LoggerFactory;
 public class ClassUtil {
 
 	private static Logger logger = LoggerFactory.getLogger(ClassUtil.class);
-	
-	/**
-	 * 装载指定的类
-	 * @param className
-	 * @return
-	 */
-	public static Class loadClass(String className){
-		Class c;
-		try {
-			c = Thread.currentThread().getContextClassLoader().loadClass(className);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			logger.error("类装载失败",e);
-			throw new RuntimeException(e);
-		}
-		return c;
-	}
-	
 	/**
 	 * 获取指定包名下的所有class对象
 	 * @param packageName  指定的包名 如mvc.controller
@@ -74,5 +56,20 @@ public class ClassUtil {
 		}
 		return classSet;
 	}
-	
+	/**
+	 * 装载指定的类
+	 * @param className
+	 * @return
+	 */
+	public static Class loadClass(String className){
+		Class c;
+		try {
+			c = Thread.currentThread().getContextClassLoader().loadClass(className);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			logger.error("类装载失败",e);
+			throw new RuntimeException(e);
+		}
+		return c;
+	}
 }

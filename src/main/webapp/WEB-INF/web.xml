@@ -8,6 +8,7 @@
     <servlet>
   	<servlet-name>dispatcherServlet</servlet-name>
   	<servlet-class>mvc.dispatcher.DispatcherServlet</servlet-class>
+
   </servlet>
 
 
@@ -34,5 +35,6 @@
 	  	<servlet-name>dispatcherServlet</servlet-name>
 	  	<url-pattern>/</url-pattern>
     </servlet-mapping>
+
     
 </web-app>

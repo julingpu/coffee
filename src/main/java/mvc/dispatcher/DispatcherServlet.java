@@ -45,7 +45,7 @@ public class DispatcherServlet extends HttpServlet{
 	public void init(ServletConfig servletConfig) throws ServletException {
 		logger.info("初始化"+this.getClass().getName()+"开始");
 		long begin = System.currentTimeMillis();
-		LoadUtil.init();
+		LoadUtil.init(servletConfig);
 		long end = System.currentTimeMillis();
 		logger.info("初始化"+this.getClass().getName()+"结束  耗时"+(end-begin)+"毫秒");
 	}
