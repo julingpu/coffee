@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<coffee>
+	<!-- 设置controller层的包名 -->
+	<param name="controllerPackage" value="coffee.controller"/>
+	<param name="entityPackage" value="coffee.entity"/>
+</coffee>

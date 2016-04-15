@@ -7,7 +7,7 @@
 
     <servlet>
   	<servlet-name>dispatcherServlet</servlet-name>
-  	<servlet-class>mvc.dispatcher.DispatcherServlet</servlet-class>
+  	<servlet-class>coffee.dispatcher.DispatcherServlet</servlet-class>
 
   </servlet>
 

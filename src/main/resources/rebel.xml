@@ -2,13 +2,13 @@
 <application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
 
 	<classpath>
-		<dir name="E:/workspaces/intellij-workspace/mvc/target/classes">
+		<dir name="E:/workspaces/intellij-workspace/coffee/target/classes">
 		</dir>
 	</classpath>
 
 	<web>
 		<link target="/">
-			<dir name="E:/workspaces/intellij-workspace/mvc/src/main/webapp">
+			<dir name="E:/workspaces/intellij-workspace/coffee/src/main/webapp">
 			</dir>
 		</link>
 	</web>
