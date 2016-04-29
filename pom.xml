@@ -16,12 +16,12 @@
 		  <artifactId>asm</artifactId>
 		  <version>5.1</version>
 	  </dependency>
-	 <!-- 	&lt;!&ndash;SpringMVC&ndash;&gt;
+	  	<!--&lt;!&ndash;SpringMVC&ndash;&gt;-->
 	  <dependency>
 		  <groupId>org.springframework</groupId>
 		  <artifactId>spring-webmvc</artifactId>
 		  <version>4.1.0.RELEASE</version>
-	  </dependency>-->
+	  </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -131,4 +131,7 @@
 
 	  </plugins>
   </build>
+
+
+
 </project>

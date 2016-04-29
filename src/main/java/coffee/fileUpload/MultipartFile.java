@@ -28,7 +28,7 @@ public class MultipartFile {
     public MultipartFile(String fieldName, long fileSize, String fileName, InputStream fileInputStream, String contentType,FileItem fileItem,byte[] bytes) {
         this.fieldName = fieldName;
         this.fileSize = fileSize;
-
+        this.fileName = fileName;
         this.bytes = bytes;
         this.fileInputStream = fileInputStream;
         this.contentType = contentType;
