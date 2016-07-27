@@ -25,7 +25,7 @@ public class ClassUtil {
 	public static Set<Class> getClassSetByPackageName(String packageName){
 		Set<Class> classSet = new HashSet<Class>();
 		//获取包名下的文件
-		File file  = new File(StringUtil.formatBlank(Thread.currentThread().getContextClassLoader().getResource(packageName.replace(".","\\")).getFile()));
+		File file  = new File(StringUtil.formatBlank(Thread.currentThread().getContextClassLoader().getResource(packageName.replace(".",File.separator)).getFile()));
 		//获取文件名下的所有class对象
 		classSet = getClassByFilePath(classSet,file.getPath(),packageName);
 		return classSet;
