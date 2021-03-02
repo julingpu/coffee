@@ -82,7 +82,7 @@
 	  <dependency>
 		  <groupId>junit</groupId>
 		  <artifactId>junit</artifactId>
-		  <version>4.10</version>
+		  <version>4.13.1</version>
 	  </dependency>
 
 	  <!--json工具包  对象通过fastjson转成json数据的属性顺序不和对象定义的顺序不一致 所以这里不使用-->
