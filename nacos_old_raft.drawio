@@ -1,1 +1,155 @@
-<mxfile host="app.diagrams.net" modified="2021-05-08T06:23:48.871Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" version="14.6.10" etag="kYoKs2Ckydiu32d1srv6" type="github"><diagram id="6GUr9mMnHaTA7pAdpMfc">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-08T07:17:58.989Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="Psri8YVo_IglIl-d3Q8n" version="14.6.10" type="github">
+  <diagram id="6GUr9mMnHaTA7pAdpMfc" name="Page-1">
+    <mxGraphModel dx="1038" dy="1661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-1" value="nacos集群" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;" vertex="1" parent="1">
+          <mxGeometry x="90" y="-120" width="480" height="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-2" value="node 1" style="swimlane;html=1;startSize=20;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-1">
+          <mxGeometry y="20" width="160" height="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-5" target="rSjQNdE-Yzo_0u9g2Iak-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-5" value="从0-15s中随机一个leader选举时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-17" target="rSjQNdE-Yzo_0u9g2Iak-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-17" value="5s" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="140" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-20" target="rSjQNdE-Yzo_0u9g2Iak-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-20" value="status=follower&lt;br&gt;term=0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-29" target="rSjQNdE-Yzo_0u9g2Iak-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-29" value="每0.5s将选举时间减少0.5s,直到选举时间小于0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="25" y="180" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-35" target="rSjQNdE-Yzo_0u9g2Iak-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-35" value="重置选举时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="280" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-2" source="rSjQNdE-Yzo_0u9g2Iak-38" target="rSjQNdE-Yzo_0u9g2Iak-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-38" value="status=cadidate&lt;br&gt;term=1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="320" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-42" value="向集群中的每个节点发起投票" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="370" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-50" value="检查投票结果，若投票结果大于一半的节点数，则当选为leader" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="25" y="600" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-62" value="从0-5s中随机一个leader心跳时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="720" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-63" value="每0.5s将心跳时间减少0.5s,直到心跳时间小于0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="25" y="780" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-64" value="重置心跳时间=5s" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-2">
+          <mxGeometry x="30" y="880" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-3" value="node 2" style="swimlane;html=1;startSize=20;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-1">
+          <mxGeometry x="160" y="20" width="160" height="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-15" target="rSjQNdE-Yzo_0u9g2Iak-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-15" value="从0-15s中随机一个leader选举时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="30" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-18" target="rSjQNdE-Yzo_0u9g2Iak-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-18" value="7s" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="30" y="140" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" target="rSjQNdE-Yzo_0u9g2Iak-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="60" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-30" value="每0.5s将选举时间减少0.5s,直到选举时间小于0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="25" y="180" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-40" value="status=follower&lt;br&gt;term=0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="30" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-43" target="rSjQNdE-Yzo_0u9g2Iak-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-43" value="检查发起投票方是否属于自己的集群" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="25" y="280" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-45" target="rSjQNdE-Yzo_0u9g2Iak-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-45" value="检查发起投票方的term是否大于自己的term" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="25" y="380" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-46" target="rSjQNdE-Yzo_0u9g2Iak-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-3" source="rSjQNdE-Yzo_0u9g2Iak-46" target="rSjQNdE-Yzo_0u9g2Iak-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-46" value="重置选举时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="30" y="480" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-48" value="status=follower&lt;br&gt;term=1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="30" y="520" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-58" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="50" y="360" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-59" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-3">
+          <mxGeometry x="50" y="460" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-4" value="node 3" style="swimlane;html=1;startSize=20;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-1">
+          <mxGeometry x="320" y="20" width="160" height="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-4" source="rSjQNdE-Yzo_0u9g2Iak-16" target="rSjQNdE-Yzo_0u9g2Iak-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-16" value="从0-15s中随机一个leader选举时间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-4">
+          <mxGeometry x="30" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-4" source="rSjQNdE-Yzo_0u9g2Iak-19" target="rSjQNdE-Yzo_0u9g2Iak-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-19" value="9s" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-4">
+          <mxGeometry x="30" y="140" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-4" target="rSjQNdE-Yzo_0u9g2Iak-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="60" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-31" value="每0.5s将选举时间减少0.5s,直到选举时间小于0" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-4">
+          <mxGeometry x="25" y="180" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-41" value="status=follower&lt;br&gt;term=0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="rSjQNdE-Yzo_0u9g2Iak-4">
+          <mxGeometry x="30" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-1" source="rSjQNdE-Yzo_0u9g2Iak-42" target="rSjQNdE-Yzo_0u9g2Iak-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rSjQNdE-Yzo_0u9g2Iak-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="rSjQNdE-Yzo_0u9g2Iak-1" source="rSjQNdE-Yzo_0u9g2Iak-48" target="rSjQNdE-Yzo_0u9g2Iak-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
