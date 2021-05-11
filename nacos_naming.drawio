@@ -1,1 +1,77 @@
-<mxfile host="app.diagrams.net" modified="2021-05-10T09:20:52.513Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" version="14.6.11" etag="-8-5eYeLMZtrY6BTBIdO" type="github"><diagram id="Dr0StIl520BsilAnvCPG">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-05-11T02:55:06.069Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="P9N1Y_5bY6d3s5QYHSNl" version="14.6.11" type="github">
+  <diagram id="Dr0StIl520BsilAnvCPG" name="Page-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BvF0obb4FwmycyK__FSd-3" value="nacos集群" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.13;entryY=0.77;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BvF0obb4FwmycyK__FSd-4" target="BvF0obb4FwmycyK__FSd-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="372" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-21" value="3、启动时拉取服务端列表&lt;br&gt;同时注册服务端监听（HTTP）" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BvF0obb4FwmycyK__FSd-19">
+          <mxGeometry x="0.2361" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BvF0obb4FwmycyK__FSd-4" target="BvF0obb4FwmycyK__FSd-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="230" />
+              <mxPoint x="50" y="440" />
+              <mxPoint x="326" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-23" value="5、定时拉去服务端最新的ip信息（TASK&amp;amp;HTTP）" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BvF0obb4FwmycyK__FSd-22">
+          <mxGeometry x="0.318" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="BvF0obb4FwmycyK__FSd-4" target="BvF0obb4FwmycyK__FSd-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-25" value="6、通过HTTPClient发起调用" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BvF0obb4FwmycyK__FSd-24">
+          <mxGeometry x="-0.125" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-4" value="客户端" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.96;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="BvF0obb4FwmycyK__FSd-5" target="BvF0obb4FwmycyK__FSd-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="366" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-18" value="2、定时心跳（TASK&amp;amp;HTTP）" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BvF0obb4FwmycyK__FSd-17">
+          <mxGeometry x="0.087" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-5" value="服务端" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-16" value="1、服务注册（HTTP）" style="endArrow=classic;html=1;entryX=0.88;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="BvF0obb4FwmycyK__FSd-5" target="BvF0obb4FwmycyK__FSd-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BvF0obb4FwmycyK__FSd-20" value="4、若服务端ip发生变化，&lt;br&gt;向客户端推送（UPD）" style="endArrow=classic;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="BvF0obb4FwmycyK__FSd-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="330" as="sourcePoint" />
+            <mxPoint x="440" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
