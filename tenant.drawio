@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-13T09:29:40.254Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="IcQarhLoC5Pfy34bmnEj" version="14.6.12" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-13T09:30:15.426Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="uFTvMljvYomFKt2If6k0" version="14.6.12" type="github">
   <diagram id="JblWaZ8aB8iVZCQLwsj8" name="Page-1">
     <mxGraphModel dx="2249" dy="1931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -238,19 +238,19 @@
           <mxGeometry x="-340" y="790" width="55" height="20" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-113" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="-5" y="740" width="360" height="210" as="geometry" />
+          <mxGeometry x="-130" y="740" width="360" height="210" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-114" value="用户系统逻辑架构" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="135" y="750" width="100" height="20" as="geometry" />
+          <mxGeometry x="10" y="750" width="100" height="20" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-115" value="RBAC" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="75" y="790" width="70" height="40" as="geometry" />
+          <mxGeometry x="-50" y="790" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-116" value="模拟登录" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="225" y="790" width="70" height="40" as="geometry" />
+          <mxGeometry x="90" y="860" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-117" value="功能模块管理" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="77.5" y="860" width="75" height="40" as="geometry" />
+          <mxGeometry x="-47.5" y="860" width="75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-118" value="URL改写规则&lt;br&gt;*/a/* -&amp;gt; */*&amp;nbsp;&lt;br&gt;*/b/* -&amp;gt; */*" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="710" y="280" width="180" height="40" as="geometry" />
@@ -284,6 +284,9 @@
         </mxCell>
         <mxCell id="oAvXjp7Cg_e-QrGF-36S-17" value="租户信息展示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="-590" y="600" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-20" value="租户信息" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="790" width="70" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
