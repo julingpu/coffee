@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-13T09:31:22.514Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="0tEfZ5ijF3hcpkosg4xA" version="14.6.12" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-17T08:36:10.848Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="2dnDHqcficmP4iSN4xy1" version="14.6.12" type="github">
   <diagram id="JblWaZ8aB8iVZCQLwsj8" name="Page-1">
-    <mxGraphModel dx="2249" dy="1931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1865" dy="1717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -46,7 +46,7 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-14" value="nginx" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="160" y="280" width="280" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="si1Oo1tkvW6U5wxhtszM-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.779;exitY=1.025;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#82b366;strokeWidth=2;fillColor=#d5e8d4;exitPerimeter=0;" parent="1" target="si1Oo1tkvW6U5wxhtszM-26" edge="1" source="si1Oo1tkvW6U5wxhtszM-14">
+        <mxCell id="si1Oo1tkvW6U5wxhtszM-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.779;exitY=1.025;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#82b366;strokeWidth=2;fillColor=#d5e8d4;exitPerimeter=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-14" target="si1Oo1tkvW6U5wxhtszM-26" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="380" y="360" as="sourcePoint" />
           </mxGeometry>
@@ -75,7 +75,7 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-31" value="nacos-A" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-60" y="360" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="si1Oo1tkvW6U5wxhtszM-35" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-31" edge="1" target="si1Oo1tkvW6U5wxhtszM-25">
+        <mxCell id="si1Oo1tkvW6U5wxhtszM-35" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-31" target="si1Oo1tkvW6U5wxhtszM-25" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="100" y="429.5" as="sourcePoint" />
             <mxPoint x="160" y="429.5" as="targetPoint" />
@@ -120,19 +120,19 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=1;" parent="1" source="si1Oo1tkvW6U5wxhtszM-66" target="si1Oo1tkvW6U5wxhtszM-68" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="si1Oo1tkvW6U5wxhtszM-66" value="选择行业和模块" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="si1Oo1tkvW6U5wxhtszM-66" value="选择行业和模块" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="-498" y="120" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;" parent="1" source="si1Oo1tkvW6U5wxhtszM-68" target="si1Oo1tkvW6U5wxhtszM-72" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="si1Oo1tkvW6U5wxhtszM-68" target="si1Oo1tkvW6U5wxhtszM-85">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-68" target="si1Oo1tkvW6U5wxhtszM-85" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-68" value="集群类型" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-513" y="200" width="130" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="si1Oo1tkvW6U5wxhtszM-72" target="oAvXjp7Cg_e-QrGF-36S-13">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-72" target="oAvXjp7Cg_e-QrGF-36S-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-72" value="新增租户和集群关联关系" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
@@ -141,7 +141,7 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-74" value="普通" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-368" y="210" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="si1Oo1tkvW6U5wxhtszM-75" target="oAvXjp7Cg_e-QrGF-36S-13">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-75" target="oAvXjp7Cg_e-QrGF-36S-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-75" value="新增集群信息，同时关联租户" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
@@ -171,7 +171,7 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-84" value="nginx集群管理" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-263" y="10" width="85" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="si1Oo1tkvW6U5wxhtszM-85" target="si1Oo1tkvW6U5wxhtszM-75">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-85" target="si1Oo1tkvW6U5wxhtszM-75" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-85" value="申请nginx、gateway、nacos、应用服务器资源" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;" parent="1" vertex="1">
@@ -180,7 +180,7 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-86" value="改写nginx规则" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-708" y="540" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="si1Oo1tkvW6U5wxhtszM-89" target="oAvXjp7Cg_e-QrGF-36S-17">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="si1Oo1tkvW6U5wxhtszM-89" target="oAvXjp7Cg_e-QrGF-36S-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="si1Oo1tkvW6U5wxhtszM-89" value="在模块基础上，定义超级管理员权限" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
@@ -258,34 +258,34 @@
         <mxCell id="si1Oo1tkvW6U5wxhtszM-119" value="路由规则&lt;br&gt;*/a/* -&amp;gt; gateway-A&amp;nbsp;&lt;br&gt;*/b/* -&amp;gt; gateway-B&lt;br&gt;*/c/* -&amp;gt; gateway-B" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="500" y="280" width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="oAvXjp7Cg_e-QrGF-36S-1" target="si1Oo1tkvW6U5wxhtszM-66">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="oAvXjp7Cg_e-QrGF-36S-1" target="si1Oo1tkvW6U5wxhtszM-66" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-1" value="新增租户" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-1" value="新增租户" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-498" y="40" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-3" value="人工" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-3" value="人工" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-168" y="10" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-5" value="集群名称" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-5" value="集群名称" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-565.5" y="1060" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-6" value="集群类型" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-6" value="集群类型" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-483" y="1060" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-11" value="VIP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-11" value="VIP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="-483" y="270" width="30" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="oAvXjp7Cg_e-QrGF-36S-13" target="si1Oo1tkvW6U5wxhtszM-76">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="oAvXjp7Cg_e-QrGF-36S-13" target="si1Oo1tkvW6U5wxhtszM-76" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-13" value="定义租户消息平台、网关流量额度" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-13" value="定义租户消息平台、网关流量额度" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-518" y="460" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-17" value="租户信息展示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-17" value="租户信息展示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-518" y="780" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="oAvXjp7Cg_e-QrGF-36S-20" value="租户信息" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+        <mxCell id="oAvXjp7Cg_e-QrGF-36S-20" value="租户信息" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="150" y="960" width="70" height="40" as="geometry" />
         </mxCell>
       </root>
